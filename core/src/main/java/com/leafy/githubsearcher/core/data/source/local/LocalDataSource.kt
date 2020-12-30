@@ -8,9 +8,9 @@ import kotlinx.coroutines.flow.Flow
 
 @Singleton
 class LocalDataSource @Inject constructor(private val githubDao: GithubDao){
-    fun getDetails(user: String): Flow<DetailEntity> = githubDao.getDetails(user)
+    fun getDetails(user: String) = githubDao.getDetails(user)
 
-    fun insertDetails(detail: DetailEntity) = githubDao.insertDetails(detail)
+    suspend fun insertDetails(detail: DetailEntity) = githubDao.insertDetails(detail)
 
     fun getFavoriteUser(user: String) = githubDao.getFavorite(user)
 

@@ -9,9 +9,9 @@ import javax.inject.Inject
 class GithubInteractor @Inject constructor(private val githubRepository: GithubDataSource) : GithubUseCase {
     override fun getSearchList(query: String): Flow<Status<List<User>>> = githubRepository.getSearchList(query)
 
-    override fun getDetails(user: String): Flow<Status<Detail>> = githubRepository.getDetails(user)
+    override fun getDetails(user: String): Flow<Status<Detail?>> = githubRepository.getDetails(user)
 
-    override fun getFavoriteUser(user: String): Flow<User> = githubRepository.getFavoriteUser(user)
+    override fun getFavoriteUser(user: String): Flow<User?> = githubRepository.getFavoriteUser(user)
 
     override fun getFavoriteList(): Flow<List<User>> = githubRepository.getFavoriteList()
 

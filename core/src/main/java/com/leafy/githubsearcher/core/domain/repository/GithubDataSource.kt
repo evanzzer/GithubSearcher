@@ -7,9 +7,9 @@ import kotlinx.coroutines.flow.Flow
 interface GithubDataSource {
     fun getSearchList(query: String): Flow<Status<List<User>>>
 
-    fun getDetails(user: String): Flow<Status<Detail>>
+    fun getDetails(user: String): Flow<Status<Detail?>>
 
-    fun getFavoriteUser(user: String): Flow<User>
+    fun getFavoriteUser(user: String): Flow<User?>
 
     fun getFavoriteList(): Flow<List<User>>
 

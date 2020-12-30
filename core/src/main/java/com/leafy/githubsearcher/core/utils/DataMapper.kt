@@ -34,11 +34,14 @@ object DataMapper {
         return userList
     }
 
-    fun mapFavoriteEntityToDomain(input: UserEntity): User = User(
-        username = input.username,
-        avatarUrl = input.avatarUrl,
-        isFavorite = input.isFavorite
-    )
+    fun mapFavoriteEntityToDomain(input: UserEntity?): User? {
+        if (input == null) return null
+        return User(
+                username = input.username,
+                avatarUrl = input.avatarUrl,
+                isFavorite = input.isFavorite
+        )
+    }
 
     fun mapUserDomainToEntity(input: User): UserEntity = UserEntity(
             username = input.username,
@@ -59,8 +62,9 @@ object DataMapper {
             following = input.following
     )
 
-    fun mapDetailEntityToDomain(input: DetailEntity): Detail {
+    fun mapDetailEntityToDomain(input: DetailEntity?): Detail? {
         val nullText = "Not available"
+        if (input == null) return null
         return Detail(
             username = input.username,
             avatarUrl = input.avatarUrl,

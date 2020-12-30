@@ -37,9 +37,9 @@ class GithubRepository @Inject constructor(
                 }
             }
 
-    override fun getDetails(user: String): Flow<Status<Detail>> =
-            object : NetworkBoundResource<Detail, DetailResponse>() {
-                override fun loadFromDB(): Flow<Detail> =
+    override fun getDetails(user: String): Flow<Status<Detail?>> =
+            object : NetworkBoundResource<Detail?, DetailResponse>() {
+                override fun loadFromDB(): Flow<Detail?> =
                         localDataSource.getDetails(user).map { DataMapper.mapDetailEntityToDomain(it) }
 
                 override fun shouldFetch(data: Detail?): Boolean = data == null
@@ -51,7 +51,7 @@ class GithubRepository @Inject constructor(
                         localDataSource.insertDetails(DataMapper.mapDetailResponseToEntity(data))
             }.asFlow()
 
-    override fun getFavoriteUser(user: String): Flow<User> =
+    override fun getFavoriteUser(user: String): Flow<User?> =
         localDataSource.getFavoriteUser(user).map { DataMapper.mapFavoriteEntityToDomain(it) }
 
     override fun getFavoriteList(): Flow<List<User>> =

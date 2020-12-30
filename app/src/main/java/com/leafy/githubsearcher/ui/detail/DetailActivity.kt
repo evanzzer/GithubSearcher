@@ -47,7 +47,7 @@ class DetailActivity : AppCompatActivity() {
 
             viewModel.getFavorite(user.username).observe(this, { data ->
                 binding.fabFavorite.visibility = View.VISIBLE
-                statusFavorite = data.isFavorite
+                statusFavorite = data?.isFavorite ?: false
                 setFavoriteStatus(statusFavorite)
             })
 

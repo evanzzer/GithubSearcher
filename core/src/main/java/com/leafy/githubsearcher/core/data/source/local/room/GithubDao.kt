@@ -8,14 +8,14 @@ import kotlinx.coroutines.flow.Flow
 interface GithubDao {
     // Details
     @Query("SELECT * from detail where username = :username LIMIT 1")
-    fun getDetails(username: String): Flow<DetailEntity>
+    fun getDetails(username: String): Flow<DetailEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertDetails(detail: DetailEntity)
+    suspend  fun insertDetails(detail: DetailEntity)
 
     // Favorite
     @Query("SELECT * from favorite where username = :username LIMIT 1")
-    fun getFavorite(username: String): Flow<UserEntity>
+    fun getFavorite(username: String): Flow<UserEntity?>
 
     @Query("SELECT * from favorite where isFavorite = 1")
     fun getFavoriteList(): Flow<List<UserEntity>>
