@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        android:key="@string/themeKey"
+        android:entries="@array/theme_array_key"
+        android:entryValues="@array/theme_array_value"
+        android:title="@string/setTheme"
+        android:icon="@drawable/ic_baseline_tonality_24"
+        app:iconSpaceReserved="false" />
+
+</PreferenceScreen>
