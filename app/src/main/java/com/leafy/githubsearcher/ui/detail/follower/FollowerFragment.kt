@@ -1,6 +1,7 @@
 package com.leafy.githubsearcher.ui.detail.follower
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.utils.ListUserAdapter
 import com.leafy.githubsearcher.databinding.FragmentFollowerBinding
+import com.leafy.githubsearcher.ui.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FollowerFragment() : Fragment() {
@@ -31,6 +33,12 @@ class FollowerFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             val listAdapter = ListUserAdapter()
+
+            listAdapter.onItemClick = { data ->
+                val intent = Intent(context, DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_DATA, data)
+                startActivity(intent)
+            }
 
             if (arguments != null) {
                 val username = arguments?.getString(EXTRA_DATA)
