@@ -14,7 +14,7 @@ import com.leafy.githubsearcher.databinding.FragmentFollowerBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class FollowerFragment() : Fragment() {
+class FollowerFragment : Fragment() {
     private var _binding: FragmentFollowerBinding? = null
     private val binding get() = _binding!!
 

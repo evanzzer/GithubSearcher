@@ -12,16 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHubSearcher">
-        <activity android:name="com.leafy.githubsearcher.ui.settings.SettingActivity" />
-        <activity android:name="com.leafy.githubsearcher.ui.detail.DetailActivity"
-            android:theme="@style/Theme.GitHubSearcher.Transparent" />
-        <activity android:name="com.leafy.githubsearcher.ui.home.HomeActivity">
+        <activity android:name=".ui.SplashActivity"
+            android:theme="@style/Theme.GitHubSearcher.Transparent">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.settings.SettingActivity" />
+        <activity
+            android:name=".ui.detail.DetailActivity"
+            android:theme="@style/Theme.GitHubSearcher.Transparent" />
+        <activity android:name=".ui.home.HomeActivity" />
     </application>
 
 </manifest>

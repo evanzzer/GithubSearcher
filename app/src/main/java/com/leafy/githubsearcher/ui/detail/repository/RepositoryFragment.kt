@@ -14,7 +14,7 @@ import com.leafy.githubsearcher.core.utils.ListRepositoryAdapter
 import com.leafy.githubsearcher.databinding.FragmentRepositoryBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class RepositoryFragment() : Fragment() {
+class RepositoryFragment : Fragment() {
     private var _binding: FragmentRepositoryBinding? = null
     private val binding get() = _binding!!
 
