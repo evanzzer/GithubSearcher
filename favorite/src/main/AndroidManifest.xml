@@ -3,6 +3,16 @@
     xmlns:dist="http://schemas.android.com/apk/distribution"
     package="com.leafy.githubsearcher.favorite">
 
+    <application>
+        <activity android:name=".FavoriteActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="githubsearcher" android:host="favorite" />
+            </intent-filter>
+        </activity>
+    </application>
+
     <dist:module
         dist:instant="false"
         dist:title="@string/title_favorite">
@@ -12,17 +22,5 @@
 
         <dist:fusing dist:include="true" />
     </dist:module>
-
-    <application>
-        <receiver android:name=".widget.FavoriteWidget">
-            <intent-filter>
-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.appwidget.provider"
-                android:resource="@xml/favorite_widget_info" />
-        </receiver>
-    </application>
 
 </manifest>

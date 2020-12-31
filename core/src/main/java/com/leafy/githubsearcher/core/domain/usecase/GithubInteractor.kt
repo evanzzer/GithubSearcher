@@ -4,9 +4,8 @@ import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.domain.model.*
 import com.leafy.githubsearcher.core.domain.repository.GithubDataSource
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
-class GithubInteractor @Inject constructor(private val githubRepository: GithubDataSource) : GithubUseCase {
+class GithubInteractor(private val githubRepository: GithubDataSource) : GithubUseCase {
     override fun getSearchList(query: String): Flow<Status<List<User>>> = githubRepository.getSearchList(query)
 
     override fun getDetails(user: String): Flow<Status<Detail?>> = githubRepository.getDetails(user)

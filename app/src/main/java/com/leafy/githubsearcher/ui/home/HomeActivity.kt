@@ -4,11 +4,11 @@ import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.Observer
@@ -22,13 +22,12 @@ import com.leafy.githubsearcher.ui.detail.DetailActivity
 import com.leafy.githubsearcher.ui.settings.SettingActivity
 import com.leafy.githubsearcher.utils.Keyboard
 import com.leafy.githubsearcher.utils.StartupTheme
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.android.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
     private val cardAdapter = CardUserAdapter()
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModel()
 
     lateinit var binding: ActivityHomeBinding
 
@@ -83,6 +82,10 @@ class HomeActivity : AppCompatActivity() {
             layoutManager = GridLayoutManager(this@HomeActivity, 2)
             setHasFixedSize(true)
             adapter = cardAdapter
+        }
+
+        binding.fabFavorite.setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("githubsearcher://favorite")))
         }
     }
 

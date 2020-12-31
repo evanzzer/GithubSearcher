@@ -8,23 +8,10 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.0.2'
     implementation 'com.github.bumptech.glide:glide:4.11.0'
 
-    // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
-
-    // Room
-    implementation 'androidx.room:room-runtime:2.2.6'
-    implementation 'androidx.room:room-ktx:2.2.6'
-    kapt 'androidx.room:room-compiler:2.2.6'
-    androidTestImplementation 'androidx.room:room-testing:2.2.6'
-
-    // Dagger
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
-    kaptAndroidTest 'androidx.hilt:hilt-compiler:1.0.0-alpha02'
+    // Koin
+    implementation 'org.koin:koin-core:2.1.6'
+    implementation 'org.koin:koin-android:2.1.6'
+    implementation 'org.koin:koin-android-viewmodel:2.1.6'
 
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

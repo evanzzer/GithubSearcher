@@ -6,6 +6,9 @@
     <string name="avatar">avatar</string>
     <string name="username">username</string>
 
+    <string name="name">Name</string>
+    <string name="link">Link</string>
+
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
 </resources>

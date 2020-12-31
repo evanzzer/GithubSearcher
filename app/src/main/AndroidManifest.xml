@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GitHubSearcher">
-        <activity android:name="com.leafy.githubsearcher.ui.settings.SettingActivity"></activity>
+        <activity android:name="com.leafy.githubsearcher.ui.settings.SettingActivity" />
         <activity android:name="com.leafy.githubsearcher.ui.detail.DetailActivity"
             android:theme="@style/Theme.GitHubSearcher.Transparent" />
         <activity android:name="com.leafy.githubsearcher.ui.home.HomeActivity">

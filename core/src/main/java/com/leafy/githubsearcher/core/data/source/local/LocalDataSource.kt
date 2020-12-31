@@ -2,12 +2,9 @@ package com.leafy.githubsearcher.core.data.source.local
 
 import com.leafy.githubsearcher.core.data.source.local.entity.*
 import com.leafy.githubsearcher.core.data.source.local.room.GithubDao
-import javax.inject.Inject
-import javax.inject.Singleton
 import kotlinx.coroutines.flow.Flow
 
-@Singleton
-class LocalDataSource @Inject constructor(private val githubDao: GithubDao){
+class LocalDataSource(private val githubDao: GithubDao){
     fun getDetails(user: String) = githubDao.getDetails(user)
 
     suspend fun insertDetails(detail: DetailEntity) = githubDao.insertDetails(detail)

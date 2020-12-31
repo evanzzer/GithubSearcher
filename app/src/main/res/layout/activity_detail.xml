@@ -21,7 +21,8 @@
             android:layout_height="256sp"
             android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/purple_500"
+            app:statusBarScrim="@color/purple_500"
             app:expandedTitleGravity="bottom|center">
 
             <FrameLayout
@@ -51,7 +52,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:theme="@style/Theme.GitHubSearcher.Overlay"
                 android:background="@android:color/transparent"
                 app:layout_collapseMode="pin" />
 

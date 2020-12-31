@@ -12,40 +12,50 @@
         <item>@string/themeValue_night</item>
         <item>@string/themeValue_auto</item>
     </array>
+
     <string name="app_name">GitHub Searcher</string>
+
     <string name="search">Search</string>
     <string name="setting">Setting</string>
     <string name="search_hint">Enter keyword</string>
     <string name="detail">detail</string>
     <string name="follower">follower</string>
-    <!-- fragment -->
     <string name="following">following</string>
     <string name="repository">repository</string>
-    <!-- error handler -->
+
+    <string name="company">Company</string>
+    <string name="location">Location</string>
+    <string name="email">Email</string>
+
+    <!-- fragment -->
+    <string name="tabRepository">Repository</string>
     <string name="tabFollower">Follower</string>
     <string name="tabFollowing">Following</string>
 
-    <!-- Toast Message -->
+    <!-- error handler -->
     <string name="nullText">Not Specified</string>
     <string name="initText">Search for various of cool people</string>
-    <!-- Setting Preference -->
+
+    <!-- Toast Message -->
     <string name="unfavMessage">Successfully removed from the favorite list</string>
-    <!-- Setting Key -->
     <string name="favMessage">Successfully added to the favorite list</string>
-    <!-- Theme Key -->
+
+    <!-- Setting Preference -->
     <string name="setTheme">Change your Theme Mode</string>
+
+    <!-- Setting Key -->
     <string name="themeKey">theme</string>
+
+    <!-- Theme Key -->
     <string name="theme_default">System Default</string>
     <string name="theme_day">Day</string>
-
-    <!-- Non-translatable Theme Key Value -->
     <string name="theme_night">Night</string>
     <string name="theme_auto">Auto</string>
-    <string name="themeValue_default" translatable="false">System</string>
-    <string name="themeValue_day" translatable="false">Day</string>
 
-    <string name="themeValue_night" translatable="false">Night</string>
-
-    <string name="themeValue_auto" translatable="false">Auto</string>
+    <!-- Non-translatable Theme Key Value -->
+    <string name="themeValue_default">System</string>
+    <string name="themeValue_day">Day</string>
+    <string name="themeValue_night">Night</string>
+    <string name="themeValue_auto">Auto</string>
     <string name="title_favorite">Favorite</string>
 </resources>

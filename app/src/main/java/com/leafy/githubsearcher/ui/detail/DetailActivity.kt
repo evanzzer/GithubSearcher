@@ -1,23 +1,22 @@
 package com.leafy.githubsearcher.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
-import androidx.activity.viewModels
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.leafy.githubsearcher.R
 import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.domain.model.User
 import com.leafy.githubsearcher.databinding.ActivityDetailBinding
-import dagger.hilt.android.AndroidEntryPoint
+import org.koin.android.viewmodel.ext.android.viewModel
 
-@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
-    private val viewModel: DetailViewModel by viewModels()
+    private val viewModel: DetailViewModel by viewModel()
     private lateinit var binding: ActivityDetailBinding
 
     companion object {
@@ -31,6 +30,8 @@ class DetailActivity : AppCompatActivity() {
 
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 
+        binding.layoutContent.viewPager
+
         val user = intent.getParcelableExtra<User>(EXTRA_DATA)
         if (user == null) {
             AlertDialog.Builder(this@DetailActivity)
@@ -42,6 +43,10 @@ class DetailActivity : AppCompatActivity() {
         } else {
             setSupportActionBar(binding.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+            val sectionPagerAdapter = SectionPagerAdapter(this@DetailActivity, supportFragmentManager, user.username)
+            binding.layoutContent.viewPager.adapter = sectionPagerAdapter
+            binding.layoutContent.tab.setupWithViewPager(binding.layoutContent.viewPager)
 
             var statusFavorite = false
 
@@ -55,6 +60,13 @@ class DetailActivity : AppCompatActivity() {
                 statusFavorite = !statusFavorite
                 viewModel.setFavorite(user, statusFavorite)
                 setFavoriteStatus(statusFavorite)
+                Toast.makeText(
+                    this@DetailActivity,
+                    resources.getString(
+                        if (statusFavorite) R.string.favMessage else R.string.unfavMessage
+                    ),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
             loadDetails(user)
@@ -77,7 +89,7 @@ class DetailActivity : AppCompatActivity() {
                         with(binding.layoutContent) {
                             layoutNestedDetail.visibility = View.VISIBLE
                             name.text = details.data?.name
-                            link.text = details.data?.githubUrl
+                            link.text = details.data?.githubUrl?.replace("https://", "")
                             location.text = details.data?.location
                             company.text = details.data?.company
                             email.text = details.data?.email
@@ -103,6 +115,11 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         })
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return super.onSupportNavigateUp()
     }
 
     private fun setFavoriteStatus(statusFavorite: Boolean) {

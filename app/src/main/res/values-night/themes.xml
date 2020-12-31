@@ -27,4 +27,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimary</item>
     </style>
+
+    <style name="Theme.GitHubSearcher.Overlay.Background">
+        <item name="colorSurface">@color/dark_surface</item>
+    </style>
 </resources>
