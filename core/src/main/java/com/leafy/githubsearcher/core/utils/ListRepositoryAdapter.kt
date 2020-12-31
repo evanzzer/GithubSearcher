@@ -7,7 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.leafy.githubsearcher.core.databinding.ItemListRepositoryBinding
 import com.leafy.githubsearcher.core.domain.model.Repository
 
-class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.UserViewHolder>() {
+class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.RepositoryViewHolder>() {
+    var onItemClick: ((Repository) -> Unit)? = null
+
     var data = ArrayList<Repository>()
 
     fun setData(list: List<Repository>?) {
@@ -17,7 +19,7 @@ class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.UserVie
         notifyDataSetChanged()
     }
 
-    class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class RepositoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         private val binding = ItemListRepositoryBinding.bind(itemView)
         fun bind(repository: Repository) {
             with(binding) {
@@ -25,14 +27,20 @@ class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.UserVie
                 link.text = repository.url.replace("https://", "")
             }
         }
+
+        init {
+            binding.root.setOnClickListener {
+                onItemClick?.invoke(data[adapterPosition])
+            }
+        }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val binding = ItemListRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UserViewHolder(binding.root)
+        return RepositoryViewHolder(binding.root)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         holder.bind(data[position])
     }
 

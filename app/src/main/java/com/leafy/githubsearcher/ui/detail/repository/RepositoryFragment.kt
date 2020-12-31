@@ -1,6 +1,8 @@
 package com.leafy.githubsearcher.ui.detail.repository
 
 import android.app.AlertDialog
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -31,6 +33,10 @@ class RepositoryFragment() : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         if (activity != null) {
             val listAdapter = ListRepositoryAdapter()
+
+            listAdapter.onItemClick = { data ->
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(data.url)))
+            }
 
             if (arguments != null) {
                 val username = arguments?.getString(EXTRA_DATA)
