@@ -43,7 +43,6 @@
         android:id="@+id/rvRepository"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="6sp"
         android:layout_marginStart="16sp"
         android:layout_marginEnd="16sp"
         tools:listitem="@layout/item_list_repository" />
