@@ -22,6 +22,7 @@ import com.leafy.githubsearcher.ui.detail.DetailActivity
 import com.leafy.githubsearcher.ui.settings.SettingActivity
 import com.leafy.githubsearcher.utils.Keyboard
 import com.leafy.githubsearcher.utils.StartupTheme
+import com.leafy.githubsearcher.utils.Utility
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -78,8 +79,13 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val imgWidth = resources.getDimension(R.dimen.image_width) + 2 * resources.getDimension(R.dimen.image_margin)
+
         with(binding.rvSearch) {
-            layoutManager = GridLayoutManager(this@HomeActivity, 2)
+            layoutManager = GridLayoutManager(
+                    this@HomeActivity,
+                    Utility.getNumberOfColumn(this@HomeActivity, imgWidth)
+            )
             setHasFixedSize(true)
             adapter = cardAdapter
         }

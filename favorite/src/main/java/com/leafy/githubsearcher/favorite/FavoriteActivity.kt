@@ -9,6 +9,7 @@ import com.leafy.githubsearcher.core.utils.CardUserAdapter
 import com.leafy.githubsearcher.core.R
 import com.leafy.githubsearcher.favorite.databinding.ActivityFavoriteBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
+import com.leafy.githubsearcher.utils.Utility
 import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -38,8 +39,13 @@ class FavoriteActivity : AppCompatActivity() {
             binding.layoutNoOutput.visibility = if (list.isNotEmpty()) View.GONE else View.VISIBLE
         })
 
+        val imgWidth = resources.getDimension(R.dimen.image_width) + 2 * resources.getDimension(R.dimen.image_margin)
+
         with(binding.rvFavorite) {
-            layoutManager = GridLayoutManager(this@FavoriteActivity, 2)
+            layoutManager = GridLayoutManager(
+                    this@FavoriteActivity,
+                    Utility.getNumberOfColumn(this@FavoriteActivity, imgWidth)
+            )
             setHasFixedSize(true)
             adapter = cardAdapter
         }
