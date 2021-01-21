@@ -7,8 +7,8 @@
         <activity android:name=".FavoriteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+                <action android:name="com.leafy.githubsearcher.favorite.FavoriteActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="githubsearcher" android:host="favorite" />
             </intent-filter>
         </activity>
     </application>

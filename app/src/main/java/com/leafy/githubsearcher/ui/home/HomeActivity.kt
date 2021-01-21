@@ -84,7 +84,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         binding.fabFavorite.setOnClickListener {
-            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("githubsearcher://favorite")))
+            startActivity(Intent("com.leafy.githubsearcher.favorite.FavoriteActivity"))
         }
     }
 

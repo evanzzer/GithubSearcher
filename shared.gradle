@@ -17,11 +17,11 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.4.1'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
+    // Leak Canary
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
+
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     androidTestImplementation 'androidx.annotation:annotation:1.1.0'
-
-    // Leak Canary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
 }
