@@ -14,7 +14,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
-    private val viewModel: FavoriteViewModel by viewModel()
+    private val viewModel by viewModel<FavoriteViewModel>()
     private lateinit var binding: ActivityFavoriteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

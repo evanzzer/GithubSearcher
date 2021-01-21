@@ -14,16 +14,20 @@ import com.leafy.githubsearcher.databinding.FragmentRepositoryBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class RepositoryFragment : Fragment() {
-    private lateinit var binding: FragmentRepositoryBinding
+    
+    private var _binding: FragmentRepositoryBinding? = null
+    // This property is only valid between onCreateView and onDestroyView.
+    // Ref [https://developer.android.com/topic/libraries/view-binding#fragments]
+    private val binding get() = _binding!!
 
-    private val viewModel: RepositoryViewModel by viewModel()
+    private val viewModel by viewModel<RepositoryViewModel>()
 
     companion object {
         const val EXTRA_DATA = "repositoryUser"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
+        _binding = FragmentRepositoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -82,5 +86,11 @@ class RepositoryFragment : Fragment() {
                 adapter = listAdapter
             }
         }
+    }
+    
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // To prevent memory leak, nullify the binding on destroy
+        _binding = null
     }
 }

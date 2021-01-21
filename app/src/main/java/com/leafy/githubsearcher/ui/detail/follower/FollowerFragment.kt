@@ -14,16 +14,19 @@ import com.leafy.githubsearcher.ui.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FollowerFragment : Fragment() {
-    private lateinit var binding: FragmentFollowerBinding
+    private var _binding: FragmentFollowerBinding? = null
+    // This property is only valid between onCreateView and onDestroyView.
+    // Ref [https://developer.android.com/topic/libraries/view-binding#fragments]
+    private val binding get() = _binding!!
 
-    private val viewModel: FollowerViewModel by viewModel()
+    private val viewModel by viewModel<FollowerViewModel>()
 
     companion object {
         const val EXTRA_DATA = "followerUser"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentFollowerBinding.inflate(inflater, container, false)
+        _binding = FragmentFollowerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -84,5 +87,11 @@ class FollowerFragment : Fragment() {
                 adapter = listAdapter
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // To prevent memory leak, nullify the binding on destroy
+        _binding = null
     }
 }

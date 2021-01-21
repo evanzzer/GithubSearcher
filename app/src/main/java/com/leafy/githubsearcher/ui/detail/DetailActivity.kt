@@ -16,7 +16,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
 
-    private val viewModel: DetailViewModel by viewModel()
+    private val viewModel by viewModel<DetailViewModel>()
     private lateinit var binding: ActivityDetailBinding
 
     companion object {
@@ -32,7 +32,7 @@ class DetailActivity : AppCompatActivity() {
 
         val user = intent.getParcelableExtra<User>(EXTRA_DATA)
         if (user == null) {
-            AlertDialog.Builder(this@DetailActivity)
+            AlertDialog.Builder(this)
                     .setTitle("Error")
                     .setMessage("Something went wrong.")
                     .setPositiveButton("OK") { _, _ -> }
@@ -42,7 +42,7 @@ class DetailActivity : AppCompatActivity() {
             setSupportActionBar(binding.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-            val sectionPagerAdapter = SectionPagerAdapter(this@DetailActivity, supportFragmentManager, user.username)
+            val sectionPagerAdapter = SectionPagerAdapter(this, supportFragmentManager, user.username)
             binding.viewPager.adapter = sectionPagerAdapter
             binding.tab.setupWithViewPager(binding.viewPager)
 
@@ -59,7 +59,7 @@ class DetailActivity : AppCompatActivity() {
                 viewModel.setFavorite(user, statusFavorite)
                 setFavoriteStatus(statusFavorite)
                 Toast.makeText(
-                    this@DetailActivity,
+                    this,
                     resources.getString(
                         if (statusFavorite) R.string.favMessage else R.string.unfavMessage
                     ),
@@ -74,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
     private fun loadDetails(user: User) {
         binding.collapsingToolbar.title = user.username
 
-        Glide.with(this@DetailActivity)
+        Glide.with(this)
                 .load(user.avatarUrl)
                 .placeholder(R.drawable.ic_baseline_person_24)
                 .into(binding.avatar)

@@ -15,16 +15,19 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 class FollowingFragment : Fragment() {
     
-    private lateinit var binding: FragmentFollowingBinding
+    private var _binding: FragmentFollowingBinding? = null
+    // This property is only valid between onCreateView and onDestroyView.
+    // Ref [https://developer.android.com/topic/libraries/view-binding#fragments]
+    private val binding get() = _binding!!
 
-    private val viewModel: FollowingViewModel by viewModel()
+    private val viewModel by viewModel<FollowingViewModel>()
 
     companion object {
         const val EXTRA_DATA = "followingUser"
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentFollowingBinding.inflate(inflater, container, false)
+        _binding = FragmentFollowingBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -85,5 +88,11 @@ class FollowingFragment : Fragment() {
                 adapter = listAdapter
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        // To prevent memory leak, nullify the binding on destroy
+        _binding = null
     }
 }

@@ -27,7 +27,7 @@ import org.koin.android.viewmodel.ext.android.viewModel
 class HomeActivity : AppCompatActivity() {
 
     private val cardAdapter = CardUserAdapter()
-    private val viewModel: HomeViewModel by viewModel()
+    private val viewModel by viewModel<HomeViewModel>()
 
     private lateinit var binding: ActivityHomeBinding
 
@@ -66,11 +66,8 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Retrieve theme at init
-        StartupTheme.getTheme(this@HomeActivity)
-
         cardAdapter.onItemClick = { data ->
-            val intent = Intent(this@HomeActivity, DetailActivity::class.java)
+            val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(DetailActivity.EXTRA_DATA, data)
             startActivity(intent)
         }
@@ -120,7 +117,7 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.toolSetting)
-            startActivity(Intent(this@HomeActivity, SettingActivity::class.java))
+            startActivity(Intent(this, SettingActivity::class.java))
         return super.onOptionsItemSelected(item)
     }
 }
