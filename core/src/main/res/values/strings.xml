@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="errorText">Oops.. Something went wrong.</string>
     <string name="emptyText">No data has been found</string>
     <string name="favorite">Favorite</string>
 
     <string name="avatar">avatar</string>
     <string name="username">username</string>
 
-    <string name="name">Name</string>
-    <string name="link">Link</string>
+    <string name="name">Your Full Name</string>
+    <string name="link">Github User Link</string>
 
-    <string name="appwidget_text">EXAMPLE</string>
-    <string name="add_widget">Add widget</string>
 </resources>

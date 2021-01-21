@@ -1,6 +1,5 @@
 package com.leafy.githubsearcher.ui.home
 
-import android.app.AlertDialog
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -17,12 +16,12 @@ import com.leafy.githubsearcher.R
 import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.domain.model.User
 import com.leafy.githubsearcher.core.utils.CardUserAdapter
+import com.leafy.githubsearcher.core.utils.Utility
 import com.leafy.githubsearcher.databinding.ActivityHomeBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
 import com.leafy.githubsearcher.ui.settings.SettingActivity
 import com.leafy.githubsearcher.utils.Keyboard
 import com.leafy.githubsearcher.utils.StartupTheme
-import com.leafy.githubsearcher.utils.Utility
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
@@ -30,7 +29,7 @@ class HomeActivity : AppCompatActivity() {
     private val cardAdapter = CardUserAdapter()
     private val viewModel: HomeViewModel by viewModel()
 
-    lateinit var binding: ActivityHomeBinding
+    private lateinit var binding: ActivityHomeBinding
 
     private val observer = Observer<Status<List<User>>> { list ->
         if (list != null) {
@@ -38,13 +37,14 @@ class HomeActivity : AppCompatActivity() {
                 when (list) {
                     is Status.Loading -> {
                         progressBar.visibility = View.VISIBLE
-                        layoutSearchInit.visibility = View.GONE
-                        layoutNoOutput.visibility = View.GONE
+                        layoutSearchInit.root.visibility = View.GONE
+                        layoutNoOutput.root.visibility = View.GONE
+                        layoutError.root.visibility = View.GONE
                         rvSearch.visibility = View.GONE
                     }
                     is Status.Empty -> {
                         progressBar.visibility = View.GONE
-                        layoutNoOutput.visibility = View.VISIBLE
+                        layoutNoOutput.root.visibility = View.VISIBLE
                     }
                     is Status.Success -> {
                         progressBar.visibility = View.GONE
@@ -53,12 +53,8 @@ class HomeActivity : AppCompatActivity() {
                     }
                     is Status.Error -> {
                         progressBar.visibility = View.GONE
-                        layoutNoOutput.visibility = View.VISIBLE
-                        AlertDialog.Builder(this@HomeActivity)
-                                .setTitle("Error")
-                                .setMessage(list.message)
-                                .setPositiveButton("OK") { _, _ -> }
-                                .show()
+                        layoutError.root.visibility = View.VISIBLE
+                        layoutError.tvError.text = list.message
                     }
                 }
             }
@@ -108,7 +104,6 @@ class HomeActivity : AppCompatActivity() {
                 override fun onQueryTextSubmit(query: String?): Boolean {
                     if (query != null && query.isNotEmpty()) {
                         Keyboard.hide(this@with)
-                        if (viewModel.list.hasActiveObservers()) viewModel.list.removeObserver(observer)
                         viewModel.getSearchList(query)
                         viewModel.list.observe(this@HomeActivity, observer)
                     }

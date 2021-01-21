@@ -1,10 +1,10 @@
 package com.leafy.githubsearcher.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.appcompat.app.AppCompatActivity
 import com.leafy.githubsearcher.R
 import com.leafy.githubsearcher.ui.home.HomeActivity
 

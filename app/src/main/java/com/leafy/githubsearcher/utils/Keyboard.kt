@@ -10,9 +10,4 @@ object Keyboard {
                 .getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(v.windowToken, 0)
     }
-
-    fun show(ctx: Context) {
-        val imm = ctx.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
-    }
 }

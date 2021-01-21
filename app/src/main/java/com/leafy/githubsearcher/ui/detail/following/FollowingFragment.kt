@@ -1,8 +1,6 @@
 package com.leafy.githubsearcher.ui.detail.following
 
-import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,20 +54,17 @@ class FollowingFragment : Fragment() {
                                     }
                                     is Status.Empty -> {
                                         progressBar.visibility = View.GONE
-                                        layoutNoOutput.visibility = View.VISIBLE
+                                        layoutNoOutput.root.visibility = View.VISIBLE
                                     }
                                     is Status.Error -> {
                                         progressBar.visibility = View.GONE
-                                        layoutNoOutput.visibility = View.VISIBLE
-                                        AlertDialog.Builder(context)
-                                                .setTitle("Error")
-                                                .setMessage("Follower list failed to load\nError: ${list.message}")
-                                                .setPositiveButton("OK") { _, _ -> }
-                                                .show()
+                                        layoutError.root.visibility = View.VISIBLE
+                                        layoutError.tvError.text = list.message
                                     }
                                     is Status.Loading -> {
                                         progressBar.visibility = View.VISIBLE
-                                        layoutNoOutput.visibility = View.GONE
+                                        layoutNoOutput.root.visibility = View.GONE
+                                        layoutError.root.visibility = View.GONE
                                         rvFollowing.visibility = View.GONE
                                     }
                                 }
@@ -78,7 +73,7 @@ class FollowingFragment : Fragment() {
                     })
             } else {
                 with(binding) {
-                    layoutNoOutput.visibility = View.VISIBLE
+                    layoutError.root.visibility = View.VISIBLE
                     progressBar.visibility = View.GONE
                     rvFollowing.visibility = View.GONE
                 }

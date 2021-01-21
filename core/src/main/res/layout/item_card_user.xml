@@ -8,10 +8,9 @@
     android:layout_margin="@dimen/image_margin"
     app:cardCornerRadius="12sp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
 
@@ -20,18 +19,27 @@
             android:layout_width="@dimen/image_width"
             android:layout_height="@dimen/image_width"
             android:contentDescription="@string/avatar"
-            android:src="@drawable/ic_baseline_image_24" />
+            android:src="@drawable/ic_baseline_image_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0" />
 
         <TextView
-            android:id="@+id/username"
-            android:layout_width="@dimen/image_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="12sp"
             android:hint="@string/username"
-            android:padding="12sp"
+            android:maxWidth="@dimen/image_width"
             android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/avatar"
+            app:layout_constraintEnd_toEndOf="@id/avatar"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

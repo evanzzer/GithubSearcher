@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="8sp"
+    android:layout_marginTop="8sp"
+    android:layout_marginEnd="8sp" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8sp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iconName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/name"
+            android:src="@drawable/ic_baseline_person_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:background="@color/shimmer_color"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            android:textColor="@color/shimmer_color"
+            app:layout_constraintStart_toEndOf="@id/iconName"
+            app:layout_constraintTop_toTopOf="@id/iconName"
+            app:layout_constraintBottom_toBottomOf="@id/iconName"
+            tools:ignore="DuplicateIncludedIds" />
+
+        <ImageView
+            android:id="@+id/iconLink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:contentDescription="@string/link"
+            android:src="@drawable/ic_baseline_link_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconName"/>
+
+        <TextView
+            android:id="@+id/link"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:background="@color/shimmer_color"
+            android:gravity="center_vertical"
+            android:text="@string/link"
+            android:textColor="@color/shimmer_color"
+            app:layout_constraintStart_toEndOf="@id/iconLink"
+            app:layout_constraintTop_toTopOf="@id/iconLink"
+            app:layout_constraintBottom_toBottomOf="@id/iconLink"
+            tools:ignore="DuplicateIncludedIds" />
+
+        <ImageView
+            android:id="@+id/iconLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:contentDescription="@string/location"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconLink"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:background="@color/shimmer_color"
+            android:gravity="center_vertical"
+            android:text="@string/location"
+            android:textColor="@color/shimmer_color"
+            app:layout_constraintStart_toEndOf="@id/iconLocation"
+            app:layout_constraintTop_toTopOf="@id/iconLocation"
+            app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
+            tools:ignore="DuplicateIncludedIds" />
+
+        <ImageView
+            android:id="@+id/iconCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:contentDescription="@string/company"
+            android:src="@drawable/ic_baseline_store_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconLocation"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8sp"
+            android:background="@color/shimmer_color"
+            android:gravity="center_vertical"
+            android:text="@string/company"
+            android:textColor="@color/shimmer_color"
+            app:layout_constraintStart_toEndOf="@id/iconCompany"
+            app:layout_constraintTop_toTopOf="@id/iconCompany"
+            app:layout_constraintBottom_toBottomOf="@id/iconCompany"
+            tools:ignore="DuplicateIncludedIds" />
+
+        <ImageView
+            android:id="@+id/iconEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8sp"
+            android:contentDescription="@string/email"
+            android:src="@drawable/ic_baseline_email_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconCompany"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:background="@color/shimmer_color"
+            android:gravity="center_vertical"
+            android:text="@string/email"
+            android:textColor="@color/shimmer_color"
+            app:layout_constraintStart_toEndOf="@id/iconEmail"
+            app:layout_constraintTop_toTopOf="@id/iconEmail"
+            app:layout_constraintBottom_toBottomOf="@id/iconEmail"
+            tools:ignore="DuplicateIncludedIds" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

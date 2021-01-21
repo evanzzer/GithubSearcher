@@ -1,9 +1,8 @@
 package com.leafy.githubsearcher.ui.settings
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.leafy.githubsearcher.R
-import com.leafy.githubsearcher.databinding.ActivitySettingBinding
 
 class SettingActivity : AppCompatActivity() {
 

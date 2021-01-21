@@ -1,6 +1,9 @@
 package com.leafy.githubsearcher.core.data.source.local.room
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.leafy.githubsearcher.core.data.source.local.entity.*
 import kotlinx.coroutines.flow.Flow
 

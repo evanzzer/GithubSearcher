@@ -16,7 +16,6 @@
         android:theme="@style/Theme.GitHubSearcher.Overlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="256sp"
             android:fitsSystemWindows="true"
@@ -32,7 +31,6 @@
                 app:layout_collapseMode="parallax">
 
                 <ImageView
-                    android:id="@+id/bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/username"
@@ -49,7 +47,6 @@
             </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
@@ -59,22 +56,61 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24sp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        app:layout_anchor="@id/appbar"
-        app:layout_anchorGravity="center"
-        style="?android:attr/progressBarStyle" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <include layout="@layout/content_detail"
-        android:id="@+id/layoutContent"
-        android:visibility="gone"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="16sp"
+            android:paddingTop="10dp">
+
+            <include layout="@layout/content_detail_primary"
+                android:visibility="gone" />
+
+            <include layout="@layout/content_detail_secondary"
+                android:visibility="gone" />
+
+            <include layout="@layout/view_error"
+                android:visibility="gone"/>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:shimmer_auto_start="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <include layout="@layout/content_detail_primary_placeholder"
+                        tools:ignore="DuplicateIncludedIds" />
+                    <include layout="@layout/content_detail_secondary_placeholder"
+                        tools:ignore="DuplicateIncludedIds" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+            
+            <com.google.android.material.tabs.TabLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8sp"
+                android:theme="@style/Theme.GitHubSearcher.Overlay.Background"
+                app:tabSelectedTextColor="?attr/colorPrimary"
+                app:tabTextAppearance="@style/TabTextAppearance"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:nestedScrollingEnabled="true"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32sp"

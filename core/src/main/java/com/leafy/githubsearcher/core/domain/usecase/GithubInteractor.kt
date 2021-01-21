@@ -1,7 +1,9 @@
 package com.leafy.githubsearcher.core.domain.usecase
 
 import com.leafy.githubsearcher.core.data.Status
-import com.leafy.githubsearcher.core.domain.model.*
+import com.leafy.githubsearcher.core.domain.model.Detail
+import com.leafy.githubsearcher.core.domain.model.Repository
+import com.leafy.githubsearcher.core.domain.model.User
 import com.leafy.githubsearcher.core.domain.repository.GithubDataSource
 import kotlinx.coroutines.flow.Flow
 

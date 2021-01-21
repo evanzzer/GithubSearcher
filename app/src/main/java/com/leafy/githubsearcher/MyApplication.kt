@@ -8,6 +8,7 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
+@Suppress("unused")
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()

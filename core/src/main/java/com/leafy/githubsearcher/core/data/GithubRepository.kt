@@ -12,7 +12,10 @@ import com.leafy.githubsearcher.core.domain.model.User
 import com.leafy.githubsearcher.core.domain.repository.GithubDataSource
 import com.leafy.githubsearcher.core.utils.AppExecutors
 import com.leafy.githubsearcher.core.utils.DataMapper
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 
 class GithubRepository(
     private val remoteDataSource: RemoteDataSource,

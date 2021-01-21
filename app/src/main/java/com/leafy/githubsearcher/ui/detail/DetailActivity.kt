@@ -30,8 +30,6 @@ class DetailActivity : AppCompatActivity() {
 
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
 
-        binding.layoutContent.viewPager
-
         val user = intent.getParcelableExtra<User>(EXTRA_DATA)
         if (user == null) {
             AlertDialog.Builder(this@DetailActivity)
@@ -45,8 +43,8 @@ class DetailActivity : AppCompatActivity() {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
             val sectionPagerAdapter = SectionPagerAdapter(this@DetailActivity, supportFragmentManager, user.username)
-            binding.layoutContent.viewPager.adapter = sectionPagerAdapter
-            binding.layoutContent.tab.setupWithViewPager(binding.layoutContent.viewPager)
+            binding.viewPager.adapter = sectionPagerAdapter
+            binding.tab.setupWithViewPager(binding.viewPager)
 
             var statusFavorite = false
 
@@ -86,31 +84,33 @@ class DetailActivity : AppCompatActivity() {
                 when (details) {
                     is Status.Success -> {
                         binding.progressBar.visibility = View.GONE
-                        with(binding.layoutContent) {
-                            layoutNestedDetail.visibility = View.VISIBLE
+                        binding.layoutContentPrimary.root.visibility = View.VISIBLE
+                        binding.layoutContentSecondary.root.visibility = View.VISIBLE
+                        with(binding.layoutContentPrimary) {
                             name.text = details.data?.name
                             link.text = details.data?.githubUrl?.replace("https://", "")
                             location.text = details.data?.location
                             company.text = details.data?.company
                             email.text = details.data?.email
+                        }
+                        with(binding.layoutContentSecondary) {
                             repository.text = details.data?.repository?.toString()
                             follower.text = details.data?.follower?.toString()
                             following.text = details.data?.following?.toString()
                         }
                     }
-                    is Status.Empty -> finish() // Not Used
+                    is Status.Empty -> {}
                     is Status.Error -> {
                         binding.progressBar.visibility = View.GONE
-                        AlertDialog.Builder(this@DetailActivity)
-                                .setTitle("Error")
-                                .setMessage(details.message)
-                                .setPositiveButton("OK") { _, _ -> }
-                                .show()
-                        finish()
+                        binding.tab.visibility = View.GONE
+                        binding.viewPager.visibility = View.GONE
+                        binding.layoutError.root.visibility = View.VISIBLE
+                        binding.layoutError.tvError.text = details.message
                     }
                     is Status.Loading -> {
                         binding.progressBar.visibility = View.VISIBLE
-                        binding.layoutContent.layoutNestedDetail.visibility = View.GONE
+                        binding.layoutContentPrimary.root.visibility = View.GONE
+                        binding.layoutContentSecondary.root.visibility = View.GONE
                     }
                 }
             }

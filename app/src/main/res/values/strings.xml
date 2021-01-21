@@ -18,14 +18,15 @@
     <string name="search">Search</string>
     <string name="setting">Setting</string>
     <string name="search_hint">Enter keyword</string>
-    <string name="detail">detail</string>
     <string name="follower">follower</string>
     <string name="following">following</string>
     <string name="repository">repository</string>
 
     <string name="company">Company</string>
     <string name="location">Location</string>
-    <string name="email">Email</string>
+    <string name="email">Github Representative Email</string>
+
+    <string name="placeholder">999</string>
 
     <!-- fragment -->
     <string name="tabRepository">Repository</string>
@@ -33,7 +34,6 @@
     <string name="tabFollowing">Following</string>
 
     <!-- error handler -->
-    <string name="nullText">Not Specified</string>
     <string name="initText">Search for various of cool people</string>
 
     <!-- Toast Message -->

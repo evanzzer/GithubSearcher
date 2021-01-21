@@ -4,8 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="6sp"
+    android:layout_marginStart="12sp"
+    android:layout_marginEnd="12sp"
     android:layout_marginTop="6sp"
+    android:layout_marginBottom="6sp"
     android:layout_gravity="center"
     android:orientation="vertical">
 
@@ -13,7 +15,6 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12sp"
         android:fontFamily="sans-serif-medium"
         android:hint="@string/username"
         android:letterSpacing="0.02"
@@ -24,14 +25,14 @@
         android:id="@+id/link"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12sp"
+        android:layout_marginTop="4sp"
+        android:drawablePadding="8sp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
         android:hint="@string/link"
         android:letterSpacing="0.02"
         android:textAppearance="?attr/textAppearanceBody1"
         android:textSize="16sp"
-        android:drawablePadding="8sp"
         app:drawableStartCompat="@drawable/ic_baseline_link_24" />
 
 </LinearLayout>

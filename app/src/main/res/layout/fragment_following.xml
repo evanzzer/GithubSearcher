@@ -1,46 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:nestedScrollingEnabled="true"
     android:orientation="vertical">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="6sp"
-        style="?android:attr/progressBarStyle" />
-
-    <LinearLayout
-        android:id="@+id/layoutNoOutput"
+    <com.facebook.shimmer.ShimmerFrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6sp"
-        android:orientation="vertical"
-        android:visibility="gone">
-
-        <ImageView
-            android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/emptyText"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_baseline_error_outline_24" />
-
-        <TextView
+        app:shimmer_auto_start="true">
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/emptyText"
-            android:textAlignment="center" />
-    </LinearLayout>
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16sp"
+                android:layout_marginEnd="16sp"
+                android:orientation="vertical">
+                <include layout="@layout/item_list_user_placeholder" />
+                <include layout="@layout/item_list_user_placeholder" />
+                <include layout="@layout/item_list_user_placeholder" />
+                <include layout="@layout/item_list_user_placeholder" />
+                <include layout="@layout/item_list_user_placeholder" />
+                <include layout="@layout/item_list_user_placeholder" />
+            </LinearLayout>
+        </ScrollView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <include
+        layout="@layout/view_empty"
+        android:visibility="gone"/>
+
+    <include
+        layout="@layout/view_error"
+        android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFollowing"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16sp"
