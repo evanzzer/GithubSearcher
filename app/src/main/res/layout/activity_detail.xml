@@ -16,6 +16,7 @@
         android:theme="@style/Theme.GitHubSearcher.Overlay">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="256sp"
             android:fitsSystemWindows="true"
@@ -31,6 +32,7 @@
                 app:layout_collapseMode="parallax">
 
                 <ImageView
+                    android:id="@+id/bg"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:contentDescription="@string/username"
@@ -47,6 +49,7 @@
             </FrameLayout>
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/transparent"
@@ -70,15 +73,19 @@
             android:paddingTop="10dp">
 
             <include layout="@layout/content_detail_primary"
+                android:id="@+id/layoutContentPrimary"
                 android:visibility="gone" />
 
             <include layout="@layout/content_detail_secondary"
+                android:id="@+id/layoutContentSecondary"
                 android:visibility="gone" />
 
             <include layout="@layout/view_error"
+                android:id="@+id/layoutError"
                 android:visibility="gone"/>
 
             <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/progressBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:shimmer_auto_start="true">
@@ -94,6 +101,7 @@
             </com.facebook.shimmer.ShimmerFrameLayout>
             
             <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8sp"
@@ -102,6 +110,7 @@
                 app:tabTextAppearance="@style/TabTextAppearance"/>
 
             <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:nestedScrollingEnabled="true"/>
@@ -111,6 +120,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32sp"

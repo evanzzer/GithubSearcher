@@ -9,6 +9,7 @@
     android:orientation="vertical">
 
     <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:shimmer_auto_start="true">
@@ -31,15 +32,16 @@
         </ScrollView>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-    <include
-        layout="@layout/view_empty"
+    <include layout="@layout/view_empty"
+        android:id="@+id/layoutNoOutput"
         android:visibility="gone"/>
 
-    <include
-        layout="@layout/view_error"
+    <include layout="@layout/view_error"
+        android:id="@+id/layoutError"
         android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRepository"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="16sp"

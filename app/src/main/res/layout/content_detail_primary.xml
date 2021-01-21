@@ -37,6 +37,7 @@
             tools:ignore="DuplicateIncludedIds" />
 
         <TextView
+            android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -47,6 +48,7 @@
             tools:ignore="DuplicateIncludedIds" />
 
         <TextView
+            android:id="@+id/company"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -57,6 +59,7 @@
             tools:ignore="DuplicateIncludedIds" />
 
         <TextView
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

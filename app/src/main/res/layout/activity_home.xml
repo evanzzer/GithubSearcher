@@ -8,7 +8,7 @@
     tools:context=".ui.home.HomeActivity">
 
     <ProgressBar
-        style="?android:attr/progressBarStyle"
+        android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -17,17 +17,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        style="?android:attr/progressBarStyle"/>
 
-    <include layout="@layout/view_search" />
+    <include layout="@layout/view_search"
+        android:id="@+id/layoutSearchInit"/>
 
     <include layout="@layout/view_not_found"
+        android:id="@+id/layoutNoOutput"
         android:visibility="gone"/>
 
     <include layout="@layout/view_error"
+        android:id="@+id/layoutError"
         android:visibility="gone"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearch"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +40,7 @@
         tools:listitem="@layout/item_card_user"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="32sp"
