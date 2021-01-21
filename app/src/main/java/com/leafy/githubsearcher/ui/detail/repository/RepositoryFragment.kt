@@ -14,8 +14,7 @@ import com.leafy.githubsearcher.databinding.FragmentRepositoryBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class RepositoryFragment : Fragment() {
-    private var _binding: FragmentRepositoryBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentRepositoryBinding
 
     private val viewModel: RepositoryViewModel by viewModel()
 
@@ -24,7 +23,7 @@ class RepositoryFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentRepositoryBinding.inflate(inflater, container, false)
+        binding = FragmentRepositoryBinding.inflate(inflater, container, false)
         return binding.root
     }
 

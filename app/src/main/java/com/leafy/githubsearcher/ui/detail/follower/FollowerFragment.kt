@@ -14,8 +14,7 @@ import com.leafy.githubsearcher.ui.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FollowerFragment : Fragment() {
-    private var _binding: FragmentFollowerBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentFollowerBinding
 
     private val viewModel: FollowerViewModel by viewModel()
 
@@ -24,7 +23,7 @@ class FollowerFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        _binding = FragmentFollowerBinding.inflate(inflater, container, false)
+        binding = FragmentFollowerBinding.inflate(inflater, container, false)
         return binding.root
     }
 
