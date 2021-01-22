@@ -1,21 +1,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="@dimen/image_width"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:layout_margin="@dimen/image_margin"
     app:cardCornerRadius="12sp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:ignore="UseCompoundDrawables">
 
         <ImageView
             android:id="@+id/avatar"
-            android:layout_width="@dimen/image_width"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/image_width"
             android:contentDescription="@string/avatar"
             android:src="@drawable/ic_baseline_image_24"
@@ -23,15 +23,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintVertical_bias="0" />
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintDimensionRatio="1:1"/>
 
         <TextView
             android:id="@+id/username"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="12sp"
+            android:layout_marginTop="12sp"
+            android:layout_marginBottom="12sp"
+            android:gravity="center_horizontal"
             android:hint="@string/username"
-            android:maxWidth="@dimen/image_width"
             android:textAlignment="center"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:textSize="18sp"
