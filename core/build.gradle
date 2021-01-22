@@ -16,7 +16,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "API_KEY", '"token ef07dda303ac5f140b97396c49d64725a361cd50"')
+        buildConfigField("String", "API_KEY", '"token 63529e7b2b339e8bb14f2e5f51deaba7a6c4f2e9"')
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
