@@ -35,6 +35,7 @@ object CoreModule {
         }
     }
 
+    @Suppress("SpellCheckingInspection")
     val networkModule = module {
         single {
             val hostname = "api.github.com"
