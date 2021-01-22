@@ -36,15 +36,17 @@ class FavoriteActivity : AppCompatActivity() {
 
         viewModel.list.observe(this, { list ->
             cardAdapter.setData(list)
-            binding.layoutNoOutput.root.visibility = if (list.isNotEmpty()) View.GONE else View.VISIBLE
+            binding.layoutNoOutput.root.visibility =
+                if (list.isNotEmpty()) View.GONE else View.VISIBLE
         })
 
-        val imgWidth = resources.getDimension(R.dimen.image_width) + 2 * resources.getDimension(R.dimen.image_margin)
+        val imgWidth =
+            resources.getDimension(R.dimen.image_width) + 2 * resources.getDimension(R.dimen.image_margin)
 
         with(binding.rvFavorite) {
             layoutManager = GridLayoutManager(
-                    this@FavoriteActivity,
-                    Utility.getNumberOfColumn(this@FavoriteActivity, imgWidth)
+                this@FavoriteActivity,
+                Utility.getNumberOfColumn(this@FavoriteActivity, imgWidth)
             )
             setHasFixedSize(true)
             adapter = cardAdapter

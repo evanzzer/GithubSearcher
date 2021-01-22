@@ -11,14 +11,14 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
-          name: KtLint Code Style Check
-          command: ./gradlew ktlint
-      - run:
           name: Upload coverage report to CodeCov (Code Coverage)
           command: bash <(curl -s https://codecov.io/bash)
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
+      - run:
+          name: KtLint Code Style Check
+          command: ./gradlew ktlint
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
