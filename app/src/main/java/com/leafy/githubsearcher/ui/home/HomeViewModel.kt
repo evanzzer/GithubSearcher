@@ -9,7 +9,6 @@ import com.leafy.githubsearcher.core.domain.usecase.GithubUseCase
 
 class HomeViewModel(private val githubUseCase: GithubUseCase) : ViewModel() {
     lateinit var list: LiveData<Status<List<User>>>
-    
     fun getSearchList(query: String) {
         list = (githubUseCase.getSearchList(query).asLiveData())
     }

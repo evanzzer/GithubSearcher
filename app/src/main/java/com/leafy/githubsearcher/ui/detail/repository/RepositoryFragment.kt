@@ -86,7 +86,6 @@ class RepositoryFragment : Fragment() {
             }
         }
     }
-    
     override fun onDestroyView() {
         super.onDestroyView()
         // To prevent memory leak, nullify the binding on destroy
