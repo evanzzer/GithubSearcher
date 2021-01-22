@@ -12,7 +12,7 @@ jobs:
           key: android-orb-v1-
       - run:
           name: Upload coverage report to CodeCov (Code Coverage)
-          command: bash <curl -s https://codecov.io/bash)
+          command: bash <(curl -s https://codecov.io/bash)
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
