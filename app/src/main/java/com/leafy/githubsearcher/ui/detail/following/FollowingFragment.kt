@@ -14,8 +14,8 @@ import com.leafy.githubsearcher.ui.detail.DetailActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class FollowingFragment : Fragment() {
-    
     private var _binding: FragmentFollowingBinding? = null
+
     // This property is only valid between onCreateView and onDestroyView.
     // Ref [https://developer.android.com/topic/libraries/view-binding#fragments]
     private val binding get() = _binding!!
@@ -26,7 +26,11 @@ class FollowingFragment : Fragment() {
         const val EXTRA_DATA = "followingUser"
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentFollowingBinding.inflate(inflater, container, false)
         return binding.root
     }

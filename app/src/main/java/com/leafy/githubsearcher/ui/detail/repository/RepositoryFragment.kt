@@ -14,7 +14,6 @@ import com.leafy.githubsearcher.databinding.FragmentRepositoryBinding
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class RepositoryFragment : Fragment() {
-    
     private var _binding: FragmentRepositoryBinding? = null
     // This property is only valid between onCreateView and onDestroyView.
     // Ref [https://developer.android.com/topic/libraries/view-binding#fragments]

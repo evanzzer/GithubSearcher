@@ -7,7 +7,8 @@ import androidx.preference.ListPreference
 import androidx.preference.PreferenceFragmentCompat
 import com.leafy.githubsearcher.R
 
-class SettingFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
+class SettingFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
     private var themePref: ListPreference? = null
 
     private lateinit var themeKey: String
@@ -38,13 +39,13 @@ class SettingFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
 
         themePref = findPreference(themeKey)
 
-        //Set Summary
+        // Set Summary
         val pref = preferenceManager.sharedPreferences
         val themeValue = (pref.getString(themeKey, themeDefaultValue))
 
         when {
             themeValue.equals(themeDefaultValue) -> {
-                //if getting default value
+                // if getting default value
                 themePref?.value = themeDefaultValue
                 themePref?.summary = themeDefaultKey
             }
@@ -68,22 +69,22 @@ class SettingFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPr
         if (key == themeKey) {
             when (themePref?.value) {
                 themeDefaultValue -> {
-                    //Default Theme
+                    // Default Theme
                     themePref?.summary = themeDefaultKey
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
                 }
                 themeDayValue -> {
-                    //Day Theme
+                    // Day Theme
                     themePref?.summary = themeDayKey
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
                 }
                 themeNightValue -> {
-                    //Night Theme
+                    // Night Theme
                     themePref?.summary = themeNightKey
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 }
                 themeAutoValue -> {
-                    //Auto Theme
+                    // Auto Theme
                     themePref?.summary = themeAutoKey
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
                 }

@@ -3,7 +3,6 @@ package com.leafy.githubsearcher.ui.home
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -21,7 +20,6 @@ import com.leafy.githubsearcher.databinding.ActivityHomeBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
 import com.leafy.githubsearcher.ui.settings.SettingActivity
 import com.leafy.githubsearcher.utils.Keyboard
-import com.leafy.githubsearcher.utils.StartupTheme
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {

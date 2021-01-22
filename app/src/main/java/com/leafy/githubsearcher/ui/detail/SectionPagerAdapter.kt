@@ -12,15 +12,15 @@ import com.leafy.githubsearcher.ui.detail.following.FollowingFragment
 import com.leafy.githubsearcher.ui.detail.repository.RepositoryFragment
 
 class SectionPagerAdapter(
-        private val context: Context,
-        fm: FragmentManager,
-        private val username: String
+    private val context: Context,
+    fm: FragmentManager,
+    private val username: String
 ) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
     companion object {
         @StringRes
         private val TAB_TITLE = intArrayOf(
-                R.string.tabRepository, R.string.tabFollower, R.string.tabFollowing
+            R.string.tabRepository, R.string.tabFollower, R.string.tabFollowing
         )
     }
 
@@ -48,5 +48,5 @@ class SectionPagerAdapter(
     }
 
     override fun getPageTitle(position: Int): CharSequence =
-            context.resources.getString(TAB_TITLE[position])
+        context.resources.getString(TAB_TITLE[position])
 }
