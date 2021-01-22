@@ -2,7 +2,13 @@ version: 2.1
  
 orbs:
   android: circleci/android@0.2.1
- 
+  vulnachecka: whitesource/vulnerability-checker@19.5.5
+
+workflows:
+  test:
+    jobs:
+      - vulnachecka/scan
+
 jobs:
   build:
     executor: android/android
@@ -10,6 +16,9 @@ jobs:
       - checkout
       - restore_cache:
           key: android-orb-v1-
+      - run:
+          name: Upload coverage report to CodeCov (Code Coverage)
+          command: bash <curl -s https://codecov.io/bash)
       - run:
           name: Chmod permissions
           command: sudo chmod +x ./gradlew
@@ -35,3 +44,8 @@ jobs:
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
+      - run:
+          name: KtLint Code Style Check
+          command: ./gradlew ktlint
+      - store_artifacts:
+          path: ktlint/build/reports
