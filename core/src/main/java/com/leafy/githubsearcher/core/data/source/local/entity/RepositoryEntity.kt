@@ -18,5 +18,5 @@ data class RepositoryEntity(
     var name: String,
 
     @ColumnInfo(name = "repoUrl")
-    var repoUrl: String,
+    var repoUrl: String
 )

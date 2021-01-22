@@ -18,7 +18,7 @@ interface GithubDao {
     fun getDetails(username: String): Flow<DetailEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend  fun insertDetails(detail: DetailEntity)
+    suspend fun insertDetails(detail: DetailEntity)
 
     // Favorite
     @Query("SELECT * from favorite where username = :username LIMIT 1")
