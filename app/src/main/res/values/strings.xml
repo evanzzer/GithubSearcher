@@ -57,5 +57,7 @@
     <string name="themeValue_day">Day</string>
     <string name="themeValue_night">Night</string>
     <string name="themeValue_auto">Auto</string>
+
+    <!-- Used in Favorite Module Manifest -->
     <string name="title_favorite">Favorite</string>
 </resources>
