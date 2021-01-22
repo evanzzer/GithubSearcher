@@ -82,9 +82,7 @@ class GithubRepository(
                         user
                     )
                 )
-
         }.asFlow()
-
 
     override fun getFollowerList(user: String): Flow<Status<List<User>>> =
         object : NetworkBoundResource<List<User>, List<UserResponse>>() {
@@ -100,7 +98,6 @@ class GithubRepository(
 
             override suspend fun saveCallResult(data: List<UserResponse>) =
                 localDataSource.insertFollowers(DataMapper.mapFollowerResponseToEntity(data, user))
-
         }.asFlow()
 
     override fun getFollowingList(user: String): Flow<Status<List<User>>> =
@@ -122,6 +119,5 @@ class GithubRepository(
                         user
                     )
                 )
-
         }.asFlow()
 }

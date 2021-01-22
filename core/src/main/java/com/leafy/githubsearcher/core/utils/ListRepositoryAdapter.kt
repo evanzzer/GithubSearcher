@@ -19,7 +19,7 @@ class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.Reposit
         notifyDataSetChanged()
     }
 
-    inner class RepositoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class RepositoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemListRepositoryBinding.bind(itemView)
         fun bind(repository: Repository) {
             with(binding) {
@@ -36,7 +36,8 @@ class ListRepositoryAdapter : RecyclerView.Adapter<ListRepositoryAdapter.Reposit
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
-        val binding = ItemListRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemListRepositoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return RepositoryViewHolder(binding.root)
     }
 

@@ -43,7 +43,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         flow {
             try {
                 val response = apiService.getRepositoryList(headers, user)
-                emit (
+                emit(
                     if (response.isNotEmpty()) ApiResponse.Success(response) else ApiResponse.Empty
                 )
             } catch (e: Exception) {

@@ -4,9 +4,11 @@ import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 
-@Entity(tableName = "following",
-        primaryKeys = ["username", "following"])
-data class FollowingEntity (
+@Entity(
+    tableName = "following",
+    primaryKeys = ["username", "following"]
+)
+data class FollowingEntity(
     @NonNull
     @ColumnInfo(name = "username")
     var username: String,

@@ -11,6 +11,9 @@ jobs:
       - restore_cache:
           key: android-orb-v1-
       - run:
+          name: KtLint Code Style Check
+          command: ./gradlew ktlint
+      - run:
           name: Upload coverage report to CodeCov (Code Coverage)
           command: bash <(curl -s https://codecov.io/bash)
       - run:
@@ -38,8 +41,5 @@ jobs:
       - store_artifacts:  
           path: app/build/outputs/apk/debug/
           destination: artifact-file
-      - run:
-          name: KtLint Code Style Check
-          command: ./gradlew ktlint
       - store_artifacts:
           path: ktlint/build/reports

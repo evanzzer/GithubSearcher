@@ -4,8 +4,10 @@ import androidx.annotation.NonNull
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 
-@Entity(tableName = "repository",
-        primaryKeys = ["owner", "name"])
+@Entity(
+    tableName = "repository",
+    primaryKeys = ["owner", "name"]
+)
 data class RepositoryEntity(
     @NonNull
     @ColumnInfo(name = "owner")

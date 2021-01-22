@@ -1,6 +1,10 @@
 package com.leafy.githubsearcher.core.utils
 
-import com.leafy.githubsearcher.core.data.source.local.entity.*
+import com.leafy.githubsearcher.core.data.source.local.entity.UserEntity
+import com.leafy.githubsearcher.core.data.source.local.entity.DetailEntity
+import com.leafy.githubsearcher.core.data.source.local.entity.RepositoryEntity
+import com.leafy.githubsearcher.core.data.source.local.entity.FollowerEntity
+import com.leafy.githubsearcher.core.data.source.local.entity.FollowingEntity
 import com.leafy.githubsearcher.core.data.source.remote.response.detail.DetailResponse
 import com.leafy.githubsearcher.core.data.source.remote.response.repo.RepositoryResponse
 import com.leafy.githubsearcher.core.data.source.remote.response.username.UserResponse

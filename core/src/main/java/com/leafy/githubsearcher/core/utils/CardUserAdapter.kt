@@ -23,7 +23,7 @@ class CardUserAdapter : RecyclerView.Adapter<CardUserAdapter.UserViewHolder>() {
         notifyDataSetChanged()
     }
 
-    inner class UserViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemCardUserBinding.bind(itemView)
         fun bind(user: User) {
             with(binding) {
@@ -46,7 +46,8 @@ class CardUserAdapter : RecyclerView.Adapter<CardUserAdapter.UserViewHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
-        val binding = ItemCardUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemCardUserBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return UserViewHolder(binding.root)
     }
 
