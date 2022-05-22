@@ -8,11 +8,12 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayoutMediator
 import com.leafy.githubsearcher.R
 import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.domain.model.User
 import com.leafy.githubsearcher.databinding.ActivityDetailBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
 
@@ -42,17 +43,19 @@ class DetailActivity : AppCompatActivity() {
             setSupportActionBar(binding.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-            val sectionPagerAdapter = SectionPagerAdapter(this, supportFragmentManager, user.username)
+            val sectionPagerAdapter = SectionPagerAdapter(this, user.username)
             binding.viewPager.adapter = sectionPagerAdapter
-            binding.tab.setupWithViewPager(binding.viewPager)
+            TabLayoutMediator(binding.tab, binding.viewPager) { tab, position ->
+                tab.text = resources.getString(SectionPagerAdapter.TAB_TITLE[position])
+            }.attach()
 
             var statusFavorite = false
 
-            viewModel.getFavorite(user.username).observe(this, { data ->
+            viewModel.getFavorite(user.username).observe(this) { data ->
                 binding.fabFavorite.visibility = View.VISIBLE
                 statusFavorite = data?.isFavorite ?: false
                 setFavoriteStatus(statusFavorite)
-            })
+            }
 
             binding.fabFavorite.setOnClickListener {
                 statusFavorite = !statusFavorite
@@ -79,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
                 .placeholder(R.drawable.ic_baseline_person_24)
                 .into(binding.avatar)
 
-        viewModel.getDetails(user.username).observe(this, { details ->
+        viewModel.getDetails(user.username).observe(this) { details ->
             if (details != null) {
                 when (details) {
                     is Status.Success -> {
@@ -114,7 +117,7 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             }
-        })
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {

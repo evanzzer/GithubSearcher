@@ -41,7 +41,7 @@ class SettingFragment : PreferenceFragmentCompat(),
 
         // Set Summary
         val pref = preferenceManager.sharedPreferences
-        val themeValue = (pref.getString(themeKey, themeDefaultValue))
+        val themeValue = (pref?.getString(themeKey, themeDefaultValue))
 
         when {
             themeValue.equals(themeDefaultValue) -> {
@@ -57,12 +57,12 @@ class SettingFragment : PreferenceFragmentCompat(),
 
     override fun onPause() {
         super.onPause()
-        preferenceScreen.sharedPreferences.unregisterOnSharedPreferenceChangeListener(this)
+        preferenceScreen.sharedPreferences?.unregisterOnSharedPreferenceChangeListener(this)
     }
 
     override fun onResume() {
         super.onResume()
-        preferenceScreen.sharedPreferences.registerOnSharedPreferenceChangeListener(this)
+        preferenceScreen.sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {

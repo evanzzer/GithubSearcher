@@ -20,7 +20,7 @@ import com.leafy.githubsearcher.databinding.ActivityHomeBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
 import com.leafy.githubsearcher.ui.settings.SettingActivity
 import com.leafy.githubsearcher.utils.Keyboard
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeActivity : AppCompatActivity() {
 

@@ -4,7 +4,8 @@
     package="com.leafy.githubsearcher.favorite">
 
     <application>
-        <activity android:name=".FavoriteActivity">
+        <activity android:name=".FavoriteActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <action android:name="com.leafy.githubsearcher.favorite.FavoriteActivity" />

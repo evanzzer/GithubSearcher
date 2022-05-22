@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.utils.ListRepositoryAdapter
 import com.leafy.githubsearcher.databinding.FragmentRepositoryBinding
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RepositoryFragment : Fragment() {
     private var _binding: FragmentRepositoryBinding? = null
@@ -43,7 +43,7 @@ class RepositoryFragment : Fragment() {
                 val username = arguments?.getString(EXTRA_DATA)
 
                 if (username != null)
-                    viewModel.getRepository(username).observe(viewLifecycleOwner, { list ->
+                    viewModel.getRepository(username).observe(viewLifecycleOwner) { list ->
                         if (list != null) {
                             with(binding) {
                                 when (list) {
@@ -70,7 +70,7 @@ class RepositoryFragment : Fragment() {
                                 }
                             }
                         }
-                    })
+                    }
             } else {
                 with(binding) {
                     layoutError.root.visibility = View.VISIBLE

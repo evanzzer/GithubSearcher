@@ -10,7 +10,7 @@ import com.leafy.githubsearcher.core.utils.CardUserAdapter
 import com.leafy.githubsearcher.core.utils.Utility
 import com.leafy.githubsearcher.favorite.databinding.ActivityFavoriteBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
 class FavoriteActivity : AppCompatActivity() {
@@ -34,11 +34,11 @@ class FavoriteActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        viewModel.list.observe(this, { list ->
+        viewModel.list.observe(this) { list ->
             cardAdapter.setData(list)
             binding.layoutNoOutput.root.visibility =
                 if (list.isNotEmpty()) View.GONE else View.VISIBLE
-        })
+        }
 
         val imgWidth =
             resources.getDimension(R.dimen.image_width) + 2 * resources.getDimension(R.dimen.image_margin)

@@ -7,7 +7,7 @@ import com.leafy.githubsearcher.ui.detail.follower.FollowerViewModel
 import com.leafy.githubsearcher.ui.detail.following.FollowingViewModel
 import com.leafy.githubsearcher.ui.detail.repository.RepositoryViewModel
 import com.leafy.githubsearcher.ui.home.HomeViewModel
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 object AppModule {

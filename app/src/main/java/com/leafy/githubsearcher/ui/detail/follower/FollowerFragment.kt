@@ -11,7 +11,7 @@ import com.leafy.githubsearcher.core.data.Status
 import com.leafy.githubsearcher.core.utils.ListUserAdapter
 import com.leafy.githubsearcher.databinding.FragmentFollowerBinding
 import com.leafy.githubsearcher.ui.detail.DetailActivity
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class FollowerFragment : Fragment() {
     private var _binding: FragmentFollowerBinding? = null
@@ -45,7 +45,7 @@ class FollowerFragment : Fragment() {
                 val username = arguments?.getString(EXTRA_DATA)
 
                 if (username != null)
-                    viewModel.getFollower(username).observe(viewLifecycleOwner, { list ->
+                    viewModel.getFollower(username).observe(viewLifecycleOwner) { list ->
                         if (list != null) {
                             with(binding) {
                                 when (list) {
@@ -72,7 +72,7 @@ class FollowerFragment : Fragment() {
                                 }
                             }
                         }
-                    })
+                    }
             } else {
                 with(binding) {
                     layoutError.root.visibility = View.VISIBLE

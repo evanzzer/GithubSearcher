@@ -3,30 +3,29 @@ package com.leafy.githubsearcher.ui.detail
 import android.content.Context
 import android.os.Bundle
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.leafy.githubsearcher.R
 import com.leafy.githubsearcher.ui.detail.follower.FollowerFragment
 import com.leafy.githubsearcher.ui.detail.following.FollowingFragment
 import com.leafy.githubsearcher.ui.detail.repository.RepositoryFragment
 
 class SectionPagerAdapter(
-    private val context: Context,
-    fm: FragmentManager,
+    activity: AppCompatActivity,
     private val username: String
-) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+) : FragmentStateAdapter(activity) {
 
     companion object {
         @StringRes
-        private val TAB_TITLE = intArrayOf(
+        val TAB_TITLE = intArrayOf(
             R.string.tabRepository, R.string.tabFollower, R.string.tabFollowing
         )
     }
 
-    override fun getCount(): Int = TAB_TITLE.size
+    override fun getItemCount(): Int = TAB_TITLE.size
 
-    override fun getItem(position: Int): Fragment {
+    override fun createFragment(position: Int): Fragment {
         val bundle = Bundle()
         val fragment = when (position) {
             0 -> {
@@ -46,7 +45,4 @@ class SectionPagerAdapter(
         fragment.arguments = bundle
         return fragment
     }
-
-    override fun getPageTitle(position: Int): CharSequence =
-        context.resources.getString(TAB_TITLE[position])
 }
