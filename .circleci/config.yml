@@ -24,9 +24,9 @@ jobs:
           paths:
             - ~/.android/build-cache
             - ~/.android/cache
-      - run:
-          name: KtLint Code Style Check
-          command: ./gradlew ktlint
+#      - run:
+#          name: KtLint Code Style Check
+#          command: ./gradlew ktlint
       - run:
           name: Run Build
           command: ./gradlew build
